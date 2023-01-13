@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://ce0y20h2j5wm6"]
+
+[ext_resource type="Script" path="res://snake_node.gd" id="1_vfrcr"]
+[ext_resource type="PackedScene" uid="uid://cr4vtujak0nt5" path="res://snake.tscn" id="2_5ntav"]
+[ext_resource type="Texture2D" uid="uid://5bieonbobym3" path="res://wall.png" id="4_dsnot"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ew5n0"]
+texture = ExtResource("4_dsnot")
+texture_region_size = Vector2i(64, 64)
+use_texture_padding = false
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_86xcd"]
+sources/0 = SubResource("TileSetAtlasSource_ew5n0")
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_vfrcr")
+
+[node name="Snake" parent="." instance=ExtResource("2_5ntav")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_86xcd")
+cell_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(-393212, 0, 0)
