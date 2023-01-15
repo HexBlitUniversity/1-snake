@@ -1,11 +1,8 @@
 extends CharacterBody2D
 class_name SnakeNode
 
- 
 
-@export var previousNode: SnakeNode = null
-@export var nextNode: SnakeNode = null
- 
+var next_node = null
 
 func _physics_process(delta):
 	

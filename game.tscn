@@ -1,27 +1,42 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce0y20h2j5wm6"]
+[gd_scene load_steps=8 format=3 uid="uid://u72l0dqo3hd4"]
 
-[ext_resource type="Script" path="res://snake_node.gd" id="1_vfrcr"]
-[ext_resource type="PackedScene" uid="uid://cr4vtujak0nt5" path="res://snake.tscn" id="2_5ntav"]
+[ext_resource type="Script" path="res://game.gd" id="1_uhjvm"]
+[ext_resource type="PackedScene" uid="uid://b263uql7xgwfk" path="res://snake.tscn" id="2_5ntav"]
+[ext_resource type="Texture2D" uid="uid://tsau8obbc5hm" path="res://obstacle.png" id="4_4s02k"]
 [ext_resource type="Texture2D" uid="uid://5bieonbobym3" path="res://wall.png" id="4_dsnot"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ew5n0"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lgryx"]
 texture = ExtResource("4_dsnot")
 texture_region_size = Vector2i(64, 64)
-use_texture_padding = false
 0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
-[sub_resource type="TileSet" id="TileSet_86xcd"]
-sources/0 = SubResource("TileSetAtlasSource_ew5n0")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bpg1c"]
+texture = ExtResource("4_4s02k")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+
+[sub_resource type="TileSet" id="TileSet_qqkkv"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_lgryx")
+sources/3 = SubResource("TileSetAtlasSource_bpg1c")
 
 [node name="game" type="Node2D"]
-script = ExtResource("1_vfrcr")
+script = ExtResource("1_uhjvm")
 
 [node name="Snake" parent="." instance=ExtResource("2_5ntav")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+current = true
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_86xcd")
-cell_quadrant_size = 32
+tile_set = SubResource("TileSet_qqkkv")
+cell_quadrant_size = 64
 format = 2
-layer_0/tile_data = PackedInt32Array(-393212, 0, 0)
+layer_0/tile_data = PackedInt32Array(-262153, 1, 0, -262152, 1, 0, -262151, 1, 0, -262150, 1, 0, -262149, 1, 0, -262148, 1, 0, -262147, 1, 0, -262146, 1, 0, -262145, 1, 0, -327680, 1, 0, -327679, 1, 0, -327678, 1, 0, -327677, 1, 0, -327676, 1, 0, -327675, 1, 0, -327674, 1, 0, -327673, 1, 0, -327672, 1, 0, -262136, 1, 0, -196600, 1, 0, -131064, 1, 0, -65528, 1, 0, 8, 1, 0, 65544, 1, 0, 131080, 1, 0, 196616, 1, 0, 262152, 1, 0, 262151, 1, 0, 262150, 1, 0, 262149, 1, 0, 262148, 1, 0, 262147, 1, 0, 262146, 1, 0, 262145, 1, 0, 262144, 1, 0, 327675, 1, 0, 327679, 1, 0, 327678, 1, 0, 327677, 1, 0, 327676, 1, 0, 327674, 1, 0, 327673, 1, 0, 327672, 1, 0, 327671, 1, 0, 262135, 1, 0, 196599, 1, 0, 131063, 1, 0, 65527, 1, 0, -9, 1, 0, -65545, 1, 0, -131081, 1, 0, -196617, 1, 0, -131078, 3, 0, -131079, 3, 0, -65543, 3, 0, 131076, 3, 0, 131077, 3, 0, 65541, 3, 0)
