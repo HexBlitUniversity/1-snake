@@ -20,21 +20,21 @@ func _ready():
 	if snakeNodeBodyScene == null:
 		return
 		
-	while snakeDataObject.size() < bodysize:
-		var lastSnakeNode = null
-		if snakeDataObject.size() > 0:
-			lastSnakeNode = snakeDataObject.back()
+	#while snakeDataObject.size() < bodysize:
+	#	var lastSnakeNode = null
+	#	if snakeDataObject.size() > 0:
+	#		lastSnakeNode = snakeDataObject.back()
 			
-		var newSnakeBodyPosition = snakeHeadInstance.position
-		newSnakeBodyPosition.x = newSnakeBodyPosition.x-BODY_WIDTH*(snakeDataObject.size())
-		_grow_snake_node(newSnakeBodyPosition)
+	#	var newSnakeBodyPosition = snakeHeadInstance.position
+	#	newSnakeBodyPosition.x = newSnakeBodyPosition.x-BODY_WIDTH*(snakeDataObject.size())
+	#	_grow_snake_node(newSnakeBodyPosition)
 		
-		if lastSnakeNode != null:
-			lastSnakeNode.next_node = snakeDataObject.back()
-			print(lastSnakeNode == lastSnakeNode.next_node)
+	#	if lastSnakeNode != null:
+	#		lastSnakeNode.next_node = snakeDataObject.back()
+	#		print(lastSnakeNode == lastSnakeNode.next_node)
 		
 	
-	snakeHeadInstance.next_node = snakeDataObject[0]
+	#snakeHeadInstance.next_node = snakeDataObject[0]
 	
 
 # MOVEMENT 

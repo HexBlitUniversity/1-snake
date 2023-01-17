@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://8fkl6uo7bdvu" path="res://snake_body.tscn" id="2_54pbo"]
 
 [node name="Snake" type="CharacterBody2D"]
+position = Vector2(16, 16)
 script = ExtResource("1_p6rrj")
 snakeNodeBodyScene = ExtResource("2_54pbo")
 snakeHeadScene = ExtResource("1_k1i0p")
